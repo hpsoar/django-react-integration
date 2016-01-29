@@ -33,6 +33,7 @@
   <script src="{% get_static_prefix %}libs/jquery.js"></script>
   <script src="{% get_static_prefix %}build/app_webpack.js"></script>
 
+  <div id="material_test"></div>
 
   <script>
   var react_ctx_comment = {{ react_ctx_comment | json }};
@@ -52,6 +53,8 @@
   }
   React.render(React.createFactory(HelloWorld)(null), document.getElementById('react-container-hello-world'));
   React.render(React.createFactory(CommentBox)(null), document.getElementById('react-container-comment-box'));
+
+  React.render(React.createFactory(MaterialMain)(null), document.getElementById('material_test'));
 
   window.csrftoken = '{{ csrf_token }}';
 

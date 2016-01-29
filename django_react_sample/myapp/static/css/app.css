@@ -6,10 +6,6 @@ body {
   font-size: 14px;
 }
 
-div {
-  margin: 20px;
-  cursor: pointer;
-}
 dt {
   display: inline-block;
 }
