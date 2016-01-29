@@ -15,9 +15,15 @@ var Components = {
     Griddle: Griddle
 };
 
-app.get('/', function (req, res) {
-    var data = JSON.parse(req.query.data);
-    var component = Components[req.query.component_name];
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
+app.post('/', function (req, res) {
+    console.log('hello');
+    var data = JSON.parse(req.body.data);
+    console.log(data);
+    var component = Components[req.body.component_name];
     res.send(React.renderToString(component(data)));
 });
 

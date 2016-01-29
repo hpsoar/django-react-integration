@@ -20,8 +20,8 @@ def render_to_react_string(component_name, ctx=None):
         ctx = {}
 
     try:
-        response = requests.get(settings.NODE_SERVER,
-                            params={'component_name': component_name, 'data': json.dumps(ctx)})
+        response = requests.post(settings.NODE_SERVER,
+                                 data={'component_name': component_name, 'data': json.dumps(ctx)})
 
         if response.status_code == requests.codes.ok:
             return mark_safe(response.text)
